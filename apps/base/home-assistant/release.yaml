@@ -4,10 +4,10 @@ metadata:
   name: home-assistant
   namespace: home-assistant
 spec:
-  releaseName: podinfo
+  releaseName: home-assistant
   chart:
     spec:
-      chart: podinfo
+      chart: home-assistant
       sourceRef:
         kind: HelmRepository
         name: home-assistant
