@@ -3,6 +3,6 @@ kind: Kustomization
 namespace: home-assistant
 resources:
   - namespace.yaml
-  # - repository.yaml
-  # - release.yaml
-  # - virtualservice.yaml
+  - repository.yaml
+  - release.yaml
+  - virtualservice.yaml
