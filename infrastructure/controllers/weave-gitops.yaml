@@ -47,3 +47,18 @@ spec:
       # https://docs.gitops.weave.works/docs/configuration/securing-access-to-the-dashboard/#login-via-a-cluster-user-account
       # bcrypt hash for password "flux"
       passwordHash: "$2a$10$P/tHQ1DNFXdvX0zRGA8LPeSOyb0JXq9rP3fZ4W8HGTpLV7qHDlWhe"
+--
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: weave-gitops
+spec:
+  hosts:
+  - weave.k8s
+  gateways:
+  - istio-ingress/my-gateway
+  - mesh # applies to all the sidecars in the mesh
+  http:
+  - route:
+    - destination:
+        host: weave-gitops.flux-system.svc.cluster.local
