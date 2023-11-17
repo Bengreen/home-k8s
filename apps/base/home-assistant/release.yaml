@@ -10,7 +10,7 @@ spec:
       chart: home-assistant
       sourceRef:
         kind: HelmRepository
-        name: home-assistant
+        name: k8s-at-home
   interval: 50m
   install:
     remediation:
