@@ -17,4 +17,11 @@ spec:
       retries: 3
   # Default values
   # https://github.com/stefanprodan/podinfo/blob/master/charts/podinfo/values.yaml
-  values: {}
+  values:
+    env:
+      TZ: Europe/Belfast
+    http:
+      server_host: 0.0.0.0
+      ip_ban_enabled: false
+      login_attempts_threshold: 5
+      use_x_forwarded_for: true
