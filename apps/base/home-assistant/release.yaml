@@ -27,11 +27,10 @@ spec:
       ip_ban_enabled: false
       login_attempts_threshold: 5
       use_x_forwarded_for: true
-    common:
-      controller:
-        volumes:
-          cache-volume:
-            persistant: true
-            type: emptyDir
-            medium: Memory
-            sizeLimit: 50Mi
+    controller:
+      volumes:
+        cache-volume:
+          persistant: true
+          type: emptyDir
+          medium: Memory
+          sizeLimit: 50Mi
