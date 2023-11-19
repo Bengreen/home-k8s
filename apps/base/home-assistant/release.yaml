@@ -24,20 +24,19 @@ spec:
     #   enabled: true
     initContainers:
       init-config:
+        image: "{{ printf \"%s:%s\" .Values.image.repository (default .Chart.AppVersion .Values.image.tag) }}"
+
         volumeMounts:
         - mountPath: /config-overrides
           name: config-overrides
         - mountPath: /shared
           name: shared
         command:
-        - /config-overrides/configcopy.sh
+        - /bin/bash
+        - -c
         #  ["/bin/sh", "-c"]
-        # args:
-        # - echo starting;
-        #   ls -la /backups;
-        #   mysqldump --host=... -r /backups/file.sql db_name;
-        #   ls -la /backups;
-        #   echo done;
+        args:
+        - source /config-overrides/configcopy.sh
     persistence:
       # configload:
       #   enabled: true
@@ -47,6 +46,7 @@ spec:
       #   subPath: configuration.yaml
       #   readOnly: true
       shared:
+        mountPath: /config
         enabled: true
       config-overrides:
         enabled: true
@@ -58,12 +58,14 @@ spec:
         data:
           configcopy.sh: |
             #!/bin/bash
-            echo Start copy here
-            ls /shared
-            ls /config
+            echo Reviewing configs:
             ls /config-overrides
 
+            echo copying
+            cp /config-overrides/configuration.yaml /shared
+
             echo Copy complete
+            ls /shared
           configuration.yaml: |
             ---
             # Loads default set of integrations. Do not remove.
