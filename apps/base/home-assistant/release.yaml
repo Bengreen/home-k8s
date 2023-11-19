@@ -25,12 +25,12 @@ spec:
     initContainers:
       init-config:
         volumeMounts:
-        - mountPath: /config_overrides
-          name: config_overrides
+        - mountPath: /config-overrides
+          name: config-overrides
         - mountPath: /shared
           name: shared
         command:
-        - /config_overrides/configcopy.sh
+        - /config-overrides/configcopy.sh
         #  ["/bin/sh", "-c"]
         # args:
         # - echo starting;
@@ -48,7 +48,7 @@ spec:
       #   readOnly: true
       shared:
         enabled: true
-      config_overrides:
+      config-overrides:
         enabled: true
         type: configMap
         name: "{{ .Release.Name }}-config-overrides"
@@ -61,7 +61,7 @@ spec:
             echo Start copy here
             ls /shared
             ls /config
-            ls /config_overrides
+            ls /config-overrides
 
             echo Copy complete
           configuration.yaml: |
