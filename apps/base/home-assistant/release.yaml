@@ -22,41 +22,46 @@ spec:
       TZ: Europe/Belfast
     # postgresql:
     #   enabled: true
-    # initContainers:
-    #   init-config:
-    #     volumeMounts:
-    #     - mountPath: /initialconfigs
-    #       name: initialconfigs
-    #     - mountPath: /shared
-    #       name: shared
-    #     command: ["/bin/sh", "-c"]
-    #     args:
-    #     - echo starting;
-    #       ls -la /backups;
-    #       mysqldump --host=... -r /backups/file.sql db_name;
-    #       ls -la /backups;
-    #       echo done;
+    initContainers:
+      init-config:
+        volumeMounts:
+        - mountPath: /config_overrides
+          name: config_overrides
+        - mountPath: /shared
+          name: shared
+        command:
+        - /config_overrides/configcopy.sh
+        #  ["/bin/sh", "-c"]
+        # args:
+        # - echo starting;
+        #   ls -la /backups;
+        #   mysqldump --host=... -r /backups/file.sql db_name;
+        #   ls -la /backups;
+        #   echo done;
     persistence:
-      configload:
-        enabled: true
-        type: configMap
-        name: "{{ .Release.Name }}-ha-config"
-        mountPath: /config/configuration.yaml
-        subPath: configuration.yaml
-        readOnly: true
+      # configload:
+      #   enabled: true
+      #   type: configMap
+      #   name: "{{ .Release.Name }}-ha-config"
+      #   mountPath: /config/configuration.yaml
+      #   subPath: configuration.yaml
+      #   readOnly: true
       shared:
         enabled: true
-      initialconfigs:
+      config_overrides:
         enabled: true
         type: configMap
-        name: "{{ .Release.Name }}-ha-config"
+        name: "{{ .Release.Name }}-config-overrides"
     configmap:
-      ha-config:
+      config-overrides:
         enabled: true
         data:
           configcopy.sh: |
             #!/bin/bash
             echo Start copy here
+            ls /shared
+            ls /config
+            ls /config_overrides
 
             echo Copy complete
           configuration.yaml: |
@@ -75,15 +80,15 @@ spec:
             automation: !include automations.yaml
             script: !include scripts.yaml
             scene: !include scenes.yaml
-          automations.yaml: |
-            ---
-            []
-          scripts.yaml: |
-            ---
-          scenes.yaml: |
-            ---
-          secrets: |
-            ---
-            # Use this file to store secrets like usernames and passwords.
-            # Learn more at https://www.home-assistant.io/docs/configuration/secrets/
-            some_password: welcome
+          # automations.yaml: |
+          #   ---
+          #   []
+          # scripts.yaml: |
+          #   ---
+          # scenes.yaml: |
+          #   ---
+          # secrets: |
+          #   ---
+          #   # Use this file to store secrets like usernames and passwords.
+          #   # Learn more at https://www.home-assistant.io/docs/configuration/secrets/
+          #   some_password: welcome
