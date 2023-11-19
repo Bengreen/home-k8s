@@ -22,15 +22,31 @@ spec:
       TZ: Europe/Belfast
     # postgresql:
     #   enabled: true
-    http:
-      server_host: 0.0.0.0
-      ip_ban_enabled: false
-      login_attempts_threshold: 5
-      use_x_forwarded_for: true
+    # initContainers:
+    #   init-config:
+    #     volumeMounts:
+    #     - mountPath: /initialconfigs
+    #       name: initialconfigs
+    #     - mountPath: /shared
+    #       name: shared
+    #     command: ["/bin/sh", "-c"]
+    #     args:
+    #     - echo starting;
+    #       ls -la /backups;
+    #       mysqldump --host=... -r /backups/file.sql db_name;
+    #       ls -la /backups;
+    #       echo done;
     persistence:
+      configload:
+        enabled: true
+        type: configMap
+        name: "{{ .Release.Name }}-ha-config"
+        mountPath: /config/configuration.yaml
+        subPath: configuration.yaml
+        readOnly: true
       shared:
         enabled: true
-      configmapped:
+      initialconfigs:
         enabled: true
         type: configMap
         name: "{{ .Release.Name }}-ha-config"
@@ -38,6 +54,11 @@ spec:
       ha-config:
         enabled: true
         data:
+          configcopy.sh: |
+            #!/bin/bash
+            echo Start copy here
+
+            echo Copy complete
           configuration.yaml: |
             ---
             # Loads default set of integrations. Do not remove.
