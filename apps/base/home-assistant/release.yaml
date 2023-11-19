@@ -33,7 +33,7 @@ spec:
       configmapped:
         enabled: true
         type: configMap
-        name: "{{ .Helm.Release }}-ha-config"
+        name: "{{ .Release.Name }}-ha-config"
     configmap:
       ha-config:
         enabled: true
