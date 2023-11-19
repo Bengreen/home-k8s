@@ -30,3 +30,39 @@ spec:
     persistence:
       shared:
         enabled: true
+      configmapped:
+        enabled: true
+        type: configMap
+        name: ha-config
+    configmap:
+      ha-config:
+        enabled: true
+        data:
+          configuration.yaml: |
+            ---
+            # Loads default set of integrations. Do not remove.
+            default_config:
+            http:
+              server_host: 0.0.0.0
+              ip_ban_enabled: false
+              login_attempts_threshold: 5
+              use_x_forwarded_for: true
+            # Text to speech
+            tts:
+              - platform: google_translate
+
+            automation: !include automations.yaml
+            script: !include scripts.yaml
+            scene: !include scenes.yaml
+          automations.yaml: |
+            ---
+            []
+          scripts.yaml: |
+            ---
+          scenes.yaml: |
+            ---
+          secrets: |
+            ---
+            # Use this file to store secrets like usernames and passwords.
+            # Learn more at https://www.home-assistant.io/docs/configuration/secrets/
+            some_password: welcome
