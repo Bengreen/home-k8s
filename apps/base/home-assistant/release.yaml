@@ -20,8 +20,8 @@ spec:
   values:
     env:
       TZ: Europe/Belfast
-    postgresql:
-      enabled: true
+    # postgresql:
+    #   enabled: true
     http:
       server_host: 0.0.0.0
       ip_ban_enabled: false
