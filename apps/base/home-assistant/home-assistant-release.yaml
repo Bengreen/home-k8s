@@ -23,6 +23,18 @@ spec:
     initContainers:
       init-config:
         image: "{{ printf \"%s:%s\" .Values.image.repository (default .Chart.AppVersion .Values.image.tag) }}"
+        env:
+        - name: DB_USERNAME
+          value: home
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: pg-access
+              key: user
+        - name: DB_HOSTNAME
+          value: homeassistant
+        - name: DB_DATABASE
+          value: postgresql
         volumeMounts:
         - mountPath: /config-overrides
           name: config-overrides
@@ -47,11 +59,16 @@ spec:
         data:
           configcopy.sh: |
             #!/bin/bash
+            # Add gettext so we can use envsubst
+            apk add gettext
             echo Reviewing configs:
             ls /config-overrides
 
             echo copying
-            cp /config-overrides/*.yaml /shared
+            for filename in /config-overrides/*.yaml; do
+              echo Copying over $filenaem with envsubst
+              envsubst < /config-overrides/$filename > /shared/$filename
+            done
 
             echo Copy complete
             ls /shared
@@ -77,6 +94,8 @@ spec:
             automation: !include automations.yaml
             script: !include scripts.yaml
             scene: !include scenes.yaml
+            recorder:
+              db_url: postgresql://${DB_USERNAME}:${DB_PASSWORD}@${DB_HOSTNAME}/${DB_DATABASE}
           automations.yaml: |
             ---
             []
