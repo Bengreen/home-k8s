@@ -55,6 +55,10 @@ spec:
         args:
         - source /config-overrides/configcopy.sh
     persistence:
+      usb:
+        enabled: true
+        type: hostPath
+        hostPath: /dev/ttyUSB0
       shared:
         mountPath: /config
         enabled: true
