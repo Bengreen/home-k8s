@@ -3,6 +3,7 @@ kind: Kustomization
 namespace: home-assistant
 resources:
   - namespace.yaml
-  - repository.yaml
-  - release.yaml
+  - repositorys.yaml
+  - home-assistant-release.yaml
+  - postgresql-release.yaml
   - virtualservice.yaml
