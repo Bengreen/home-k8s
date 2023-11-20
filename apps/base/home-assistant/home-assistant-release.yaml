@@ -32,9 +32,9 @@ spec:
               name: pg-access
               key: user
         - name: DB_HOSTNAME
-          value: homeassistant
-        - name: DB_DATABASE
           value: postgresql
+        - name: DB_DATABASE
+          value: homeassistant
         volumeMounts:
         - mountPath: /config-overrides
           name: config-overrides
