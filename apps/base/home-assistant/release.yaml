@@ -25,7 +25,6 @@ spec:
     initContainers:
       init-config:
         image: "{{ printf \"%s:%s\" .Values.image.repository (default .Chart.AppVersion .Values.image.tag) }}"
-
         volumeMounts:
         - mountPath: /config-overrides
           name: config-overrides
@@ -34,17 +33,9 @@ spec:
         command:
         - /bin/bash
         - -c
-        #  ["/bin/sh", "-c"]
         args:
         - source /config-overrides/configcopy.sh
     persistence:
-      # configload:
-      #   enabled: true
-      #   type: configMap
-      #   name: "{{ .Release.Name }}-ha-config"
-      #   mountPath: /config/configuration.yaml
-      #   subPath: configuration.yaml
-      #   readOnly: true
       shared:
         mountPath: /config
         enabled: true
@@ -62,7 +53,7 @@ spec:
             ls /config-overrides
 
             echo copying
-            cp /config-overrides/configuration.yaml /shared
+            cp /config-overrides/*.yaml /shared
 
             echo Copy complete
             ls /shared
@@ -82,15 +73,15 @@ spec:
             automation: !include automations.yaml
             script: !include scripts.yaml
             scene: !include scenes.yaml
-          # automations.yaml: |
-          #   ---
-          #   []
-          # scripts.yaml: |
-          #   ---
-          # scenes.yaml: |
-          #   ---
-          # secrets: |
-          #   ---
-          #   # Use this file to store secrets like usernames and passwords.
-          #   # Learn more at https://www.home-assistant.io/docs/configuration/secrets/
-          #   some_password: welcome
+          automations.yaml: |
+            ---
+            []
+          scripts.yaml: |
+            ---
+          scenes.yaml: |
+            ---
+          secrets: |
+            ---
+            # Use this file to store secrets like usernames and passwords.
+            # Learn more at https://www.home-assistant.io/docs/configuration/secrets/
+            some_password: welcome
