@@ -66,8 +66,8 @@ spec:
 
             echo copying
             for filename in /config-overrides/*.yaml; do
-              echo Copying over $filenaem with envsubst
-              envsubst < /config-overrides/$filename > /shared/$filename
+              echo Copying over $filename with envsubst
+              envsubst < $filename > /shared/$(basename $filename)
             done
 
             echo Copy complete
