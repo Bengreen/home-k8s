@@ -16,3 +16,11 @@ spec:
     remediation:
       retries: 3
   values:
+    auth:
+      username: home
+      database: homeassistant
+      existingSecret: pg-access
+      secretKeys:
+        adminPasswordKey: admin
+        userPasswordKey: user
+        replicationPasswordKey: replication
