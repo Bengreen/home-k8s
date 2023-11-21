@@ -107,8 +107,8 @@ spec:
             automation: !include automations.yaml
             script: !include scripts.yaml
             scene: !include scenes.yaml
-            recorder:
-              db_url: postgresql://${DB_USERNAME}:${DB_PASSWORD}@${DB_HOSTNAME}/${DB_DATABASE}
+            # recorder:
+            #   db_url: postgresql://${DB_USERNAME}:${DB_PASSWORD}@${DB_HOSTNAME}/${DB_DATABASE}
           automations.yaml: |
             ---
             []
