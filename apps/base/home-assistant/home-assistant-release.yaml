@@ -29,6 +29,33 @@ spec:
               - sonoff-controller
     env:
       TZ: Europe/Belfast
+    # postgresql:
+    #   enabled: true
+    # initContainers:
+    #   init-config:
+    #     image: "{{ printf \"%s:%s\" .Values.image.repository (default .Chart.AppVersion .Values.image.tag) }}"
+    #     env:
+    #     - name: DB_USERNAME
+    #       value: home
+    #     - name: DB_PASSWORD
+    #       valueFrom:
+    #         secretKeyRef:
+    #           name: pg-access
+    #           key: user
+    #     - name: DB_HOSTNAME
+    #       value: postgresql
+    #     - name: DB_DATABASE
+    #       value: homeassistant
+    #     volumeMounts:
+    #     - mountPath: /config-overrides
+    #       name: config-overrides
+    #     - mountPath: /shared
+    #       name: shared
+    #     command:
+    #     - /bin/bash
+    #     - -c
+    #     args:
+    #     - source /config-overrides/configcopy.sh
     persistence:
       usb:
         enabled: true
@@ -36,13 +63,16 @@ spec:
         hostPath: /dev/ttyUSB0
       config:
         enabled: true
+      shared:
+        mountPath: /config/shared
+        enabled: true
       config-overrides:
         enabled: true
         type: configMap
         name: "{{ .Release.Name }}-config-overrides"
     configmap:
       config-overrides:
-        enabled: false
+        enabled: true
         data:
           configcopy.sh: |
             #!/bin/bash
