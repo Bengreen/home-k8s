@@ -29,17 +29,12 @@ spec:
               - sonoff-controller
     env:
       TZ: Europe/Belfast
-    # postgresql:
-    #   enabled: true
     persistence:
       usb:
         enabled: true
         type: hostPath
         hostPath: /dev/ttyUSB0
       config:
-        enabled: true
-      shared:
-        mountPath: /config/shared
         enabled: true
       config-overrides:
         enabled: true
