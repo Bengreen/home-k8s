@@ -61,8 +61,10 @@ spec:
         enabled: true
         type: hostPath
         hostPath: /dev/ttyUSB0
+      config:
+        enabled: true
       shared:
-        mountPath: /config
+        mountPath: /config/shared
         enabled: true
       config-overrides:
         enabled: true
