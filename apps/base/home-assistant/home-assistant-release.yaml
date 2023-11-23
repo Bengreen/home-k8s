@@ -38,3 +38,65 @@ spec:
         hostPath: /dev/ttyUSB0
       config:
         enabled: true
+      shared:
+        mountPath: /config/shared
+        enabled: true
+      config-overrides:
+        enabled: true
+        type: configMap
+        name: "{{ .Release.Name }}-config-overrides"
+    configmap:
+      config-overrides:
+        enabled: false
+        data:
+          configcopy.sh: |
+            #!/bin/bash
+            # Add gettext so we can use envsubst
+            apk add gettext
+            echo Reviewing configs:
+            ls /config-overrides
+
+            echo copying
+            for filename in /config-overrides/*.yaml; do
+              echo Copying over $filename with envsubst
+              envsubst < $filename > /shared/$(basename $filename)
+            done
+
+            echo Copy complete
+            ls /shared
+          configuration.yaml: |
+            ---
+            # Loads default set of integrations. Do not remove.
+            default_config:
+            http:
+              server_host: 0.0.0.0
+              ip_ban_enabled: false
+              login_attempts_threshold: 5
+              use_x_forwarded_for: true
+              trusted_proxies:
+                # Pod CIDR
+                - 10.244.0.0/16
+                # Node CIDR
+                - 192.168.2.0/24
+
+            # Text to speech
+            tts:
+              - platform: google_translate
+
+            automation: !include automations.yaml
+            script: !include scripts.yaml
+            scene: !include scenes.yaml
+            recorder:
+              db_url: postgresql://${DB_USERNAME}:${DB_PASSWORD}@${DB_HOSTNAME}/${DB_DATABASE}
+          automations.yaml: |
+            ---
+            []
+          scripts.yaml: |
+            ---
+          scenes.yaml: |
+            ---
+          secrets: |
+            ---
+            # Use this file to store secrets like usernames and passwords.
+            # Learn more at https://www.home-assistant.io/docs/configuration/secrets/
+            some_password: welcome
