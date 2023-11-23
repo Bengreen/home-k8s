@@ -2,8 +2,9 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
 metadata:
-  name: k8s-at-home
+  name: postgresql
   namespace: home-assistant
 spec:
   interval: 5m
-  url: https://k8s-at-home.com/charts
+  type: oci
+  url: oci://registry-1.docker.io/bitnamicharts
