@@ -16,4 +16,8 @@ spec:
       retries: 3
   # Default values
   # https://github.com/stefanprodan/podinfo/blob/master/charts/podinfo/values.yaml
-  values: {}
+  values:
+    replicas: 3
+    resources:
+      requests:
+        memory: 1Gi
