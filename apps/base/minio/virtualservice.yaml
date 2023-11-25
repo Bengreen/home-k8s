@@ -1,0 +1,14 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: minio
+spec:
+  hosts:
+  - minio.k8s
+  gateways:
+  - istio-ingress/my-gateway
+  - mesh # applies to all the sidecars in the mesh
+  http:
+  - route:
+    - destination:
+        host: minio.minio.svc.cluster.local

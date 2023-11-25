@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
   - ../base/podinfo
   - ../base/home-assistant
+  - ../base/minio
 patches: []
   # - path: podinfo-values.yaml
   #   target:
