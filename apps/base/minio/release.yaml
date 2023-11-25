@@ -18,6 +18,8 @@ spec:
   # https://github.com/stefanprodan/podinfo/blob/master/charts/podinfo/values.yaml
   values:
     replicas: 3
+    persistence:
+      size: 10Gi
     resources:
       requests:
         memory: 1Gi
