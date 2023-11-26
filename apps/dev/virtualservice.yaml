@@ -5,7 +5,7 @@ metadata:
   namespace: dev
 spec:
   hosts:
-  - minio-dev.k8s
+  - minio.k8s
   gateways:
   - istio-ingress/my-gateway
   - mesh # applies to all the sidecars in the mesh
