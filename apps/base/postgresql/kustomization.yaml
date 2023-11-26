@@ -3,3 +3,4 @@ kind: Kustomization
 resources:
   - repositorys.yaml
   - release.yaml
+  - pg-secrets.yaml
