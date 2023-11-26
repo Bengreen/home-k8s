@@ -16,8 +16,8 @@ spec:
       retries: 3
   values:
     auth:
-      username: home
-      database: homeassistant
+      username: myuser
+      database: mydb
       existingSecret: pg-access
       secretKeys:
         adminPasswordKey: admin
