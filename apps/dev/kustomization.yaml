@@ -4,10 +4,10 @@ metadata:
   namespace: dev
 resources:
   - ./namespace.yaml
-  - ../base/postgresql
   - ./pg-secrets.yaml
-  # # - ../base/home-assistant
-  # - ../base/minio
+  - ./virtualservice.yaml
+  - ../base/postgresql
+  - ../base/minio
 patches:
   - patch: |
       - op: replace

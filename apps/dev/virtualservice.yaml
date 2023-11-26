@@ -4,13 +4,13 @@ metadata:
   name: minio
 spec:
   hosts:
-  - minio.k8s
+  - minio-dev.k8s
   gateways:
   - istio-ingress/my-gateway
   - mesh # applies to all the sidecars in the mesh
   http:
   - route:
     - destination:
-        host: minio-console.minio.svc.cluster.local
+        host: minio-console
         port:
           number: 9001
