@@ -15,11 +15,11 @@ spec:
   prune: true
   wait: true
   timeout: 5m0s
-  patches:
-    - patch: |
-        - op: replace
-          path: /metadata/namespace
-          value: dev
-      target:
-        kind: HelmRelease
-        name: postgresql
+  # patches:
+  #   - patch: |
+  #       - op: replace
+  #         path: /metadata/namespace
+  #         value: dev
+  #     target:
+  #       kind: HelmRelease
+  #       name: postgresql
