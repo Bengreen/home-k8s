@@ -6,3 +6,4 @@ resources:
   # - weave-gitops.yaml
   - istio-system.yaml
   - istio-ingress.yaml
+  - metallb-system.yaml
