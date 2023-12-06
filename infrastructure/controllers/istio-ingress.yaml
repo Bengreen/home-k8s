@@ -26,21 +26,18 @@ spec:
       interval: 12h
   values: {}
 ---
-apiVersion: metallb.io/v1beta1
-kind: IPAddressPool
+apiVersion: networking.istio.io/v1beta1
+kind: Gateway
 metadata:
-  name: first-pool
-  namespace: metallb-system
+  name: my-gateway
+  namespace: istio-ingress
 spec:
-  addresses:
-  - 192.168.2.240-192.168.2.250
----
-apiVersion: metallb.io/v1beta1
-kind: L2Advertisement
-metadata:
-  name: l2advertisement1
-  namespace: metallb-system
-spec:
-  ipAddressPools:
-  - first-pool
-status: {}
+  selector:
+    app: istio-ingress
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - "*.k8s"
