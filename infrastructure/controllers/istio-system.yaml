@@ -31,5 +31,6 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: istio
+        namespace: flux-system
       interval: 12h
   values: {}
