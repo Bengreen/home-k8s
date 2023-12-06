@@ -22,6 +22,7 @@ metadata:
   name: istio-base
   namespace: istio-system
 spec:
+  releaseName: istio-base
   interval: 60m
   chart:
     spec:
@@ -31,4 +32,4 @@ spec:
         kind: HelmRepository
         name: istio
       interval: 12h
-  values:
+  values: {}
