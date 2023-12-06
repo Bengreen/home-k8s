@@ -5,3 +5,4 @@ resources:
   # - ingress-nginx.yaml
   # - weave-gitops.yaml
   - istio-system.yaml
+  - istio-ingress.yaml
