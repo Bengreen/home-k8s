@@ -13,6 +13,7 @@ metadata:
   name: istio-ingress
   namespace: istio-ingress
 spec:
+  releaseName: gateway
   interval: 60m
   chart:
     spec:
