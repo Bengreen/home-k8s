@@ -1,3 +1,4 @@
+---
 apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
@@ -15,3 +16,21 @@ spec:
         host: minio-console
         port:
           number: 9001
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: pgadmin
+  namespace: dev
+spec:
+  hosts:
+  - pgadmin.k8s
+  gateways:
+  - istio-ingress/k8s-gateway
+  - mesh # applies to all the sidecars in the mesh
+  http:
+  - route:
+    - destination:
+        host: pgadmin
+        port:
+          number: 8080
