@@ -43,4 +43,8 @@ spec:
   install:
     remediation:
       retries: 3
-  values: {}
+  values:
+    existingSecret: pgadmin4-password
+    env:
+      # can be email or nickname
+      email: pgadmin4
