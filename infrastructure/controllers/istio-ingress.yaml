@@ -29,11 +29,11 @@ spec:
 apiVersion: networking.istio.io/v1beta1
 kind: Gateway
 metadata:
-  name: my-gateway
+  name: k8s-gateway
   namespace: istio-ingress
 spec:
   selector:
-    app: istio-ingress
+    app: gateway
   servers:
   - port:
       number: 80
