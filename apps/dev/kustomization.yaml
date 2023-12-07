@@ -14,18 +14,4 @@ patches:
         path: /metadata/namespace
         value: dev
     target:
-      kind: HelmRepository
-  - patch: |
-      - op: replace
-        path: /metadata/namespace
-        value: dev
-    target:
       kind: HelmRelease
-      name: postgresql
-  - patch: |
-      - op: replace
-        path: /metadata/namespace
-        value: dev
-    target:
-      kind: HelmRelease
-      name: minio
