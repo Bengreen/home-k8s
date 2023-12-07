@@ -10,6 +10,9 @@ resources:
   - ../base/minio
 patches:
   - patch: |
+      - op: add
+        path: /metadata/namespace
+        value: dev
       - op: replace
         path: /metadata/namespace
         value: dev
