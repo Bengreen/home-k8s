@@ -3,4 +3,4 @@ kind: Kustomization
 namespace: minio
 resources:
   - repositorys.yaml
-  - releases.yaml
+  # - releases.yaml
