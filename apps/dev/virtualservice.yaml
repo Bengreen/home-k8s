@@ -31,6 +31,6 @@ spec:
   http:
   - route:
     - destination:
-        host: pgadmin
+        host: postgresql-pgadmin4
         port:
-          number: 8080
+          number: 80
