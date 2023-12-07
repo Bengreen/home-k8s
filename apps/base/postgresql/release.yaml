@@ -9,6 +9,7 @@ spec:
       chart: postgresql
       sourceRef:
         kind: HelmRepository
+        namespace: flux-system
         name: postgresql
   interval: 50m
   install:

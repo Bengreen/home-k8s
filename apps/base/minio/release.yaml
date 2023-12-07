@@ -9,6 +9,7 @@ spec:
       chart: minio
       sourceRef:
         kind: HelmRepository
+        namespace: flux-system
         name: minio
   interval: 50m
   install:
