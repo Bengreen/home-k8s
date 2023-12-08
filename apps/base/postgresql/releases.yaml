@@ -44,4 +44,4 @@ spec:
     existingSecret: pgadmin4-password
     env:
       # can be email or nickname
-      email: pgadmin4
+      email: admin
