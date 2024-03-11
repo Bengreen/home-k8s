@@ -6,7 +6,7 @@ resources:
   - ./namespace.yaml
   - ./pg-secrets.yaml
   - ./virtualservice.yaml
-  - ../base/postgresql
+  # - ../base/postgresql
   - ../base/minio
 patches:
   - patch: |
