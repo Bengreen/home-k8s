@@ -1,0 +1,10 @@
+---
+apiVersion: v1
+data:
+  POOL_PASS: workerid
+  POOL_URL: config2
+  POOL_USER: config1
+kind: ConfigMap
+metadata:
+  name: mining0
+  namespace: mining
