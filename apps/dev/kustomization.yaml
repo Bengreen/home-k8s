@@ -8,7 +8,6 @@ resources:
   - ./virtualservice.yaml
   - ../base/postgresql
   - ../base/minio
-  - ../base/xmrig
 patches:
   - patch: |
       - op: add
