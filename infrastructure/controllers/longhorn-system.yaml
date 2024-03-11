@@ -15,25 +15,25 @@ spec:
   interval: 60m
   url: https://charts.longhorn.io
 ---
-# # helm upgrade -i istio-base istio/base -n istio-system
-# apiVersion: helm.toolkit.fluxcd.io/v2beta1
-# kind: HelmRelease
-# metadata:
-#   name: longhorn
-#   namespace: longhorn-system
-# spec:
-#   releaseName: longhorn
-#   interval: 60m
-#   chart:
-#     spec:
-#       chart: longhorn
-#       version: "*"
-#       sourceRef:
-#         kind: HelmRepository
-#         name: longhorn
-#         namespace: flux-system
-#       interval: 12h
-#   values: {}
+# helm upgrade -i istio-base istio/base -n istio-system
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: longhorn
+  namespace: longhorn-system
+spec:
+  releaseName: longhorn
+  interval: 60m
+  chart:
+    spec:
+      chart: longhorn
+      version: "*"
+      sourceRef:
+        kind: HelmRepository
+        name: longhorn
+        namespace: flux-system
+      interval: 12h
+  values: {}
 ---
 apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
