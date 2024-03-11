@@ -21,3 +21,29 @@ spec:
         image: nginx:1.14.2
         ports:
         - containerPort: 80
+        resources:
+          limits:
+            memory: 1000Mi
+            cpu: 2000m
+        env:
+        - name: POOL_PASS
+          valueFrom:
+            configMapKeyRef:
+              # The ConfigMap containing the value you want to assign to SPECIAL_LEVEL_KEY
+              name: mining0
+              # Specify the key associated with the value
+              key: POOL_PASS
+        - name: POOL_URL
+          valueFrom:
+            configMapKeyRef:
+              # The ConfigMap containing the value you want to assign to SPECIAL_LEVEL_KEY
+              name: mining0
+              # Specify the key associated with the value
+              key: POOL_URL
+        - name: POOL_USER
+          valueFrom:
+            configMapKeyRef:
+              # The ConfigMap containing the value you want to assign to SPECIAL_LEVEL_KEY
+              name: mining0
+              # Specify the key associated with the value
+              key: POOL_USER
