@@ -7,7 +7,7 @@ metadata:
   labels:
     app: xmrig
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: xmrig
@@ -18,15 +18,16 @@ spec:
     spec:
       containers:
       - name: xmrig
-        image: nginx:1.14.2
+        image: ghcr.io/murf2/xmrig.docker:6.20.0
         ports:
         - containerPort: 80
         resources:
           limits:
-            memory: 1000Mi
-            cpu: 2000m
+            memory: 5000Mi
+            cpu: 1500m
         env:
         - name: POOL_PASS
+          # Worker ID
           valueFrom:
             configMapKeyRef:
               # The ConfigMap containing the value you want to assign to SPECIAL_LEVEL_KEY
@@ -34,6 +35,7 @@ spec:
               # Specify the key associated with the value
               key: POOL_PASS
         - name: POOL_URL
+          # Pool URL
           valueFrom:
             configMapKeyRef:
               # The ConfigMap containing the value you want to assign to SPECIAL_LEVEL_KEY
@@ -41,6 +43,7 @@ spec:
               # Specify the key associated with the value
               key: POOL_URL
         - name: POOL_USER
+          # Wallet ID
           valueFrom:
             configMapKeyRef:
               # The ConfigMap containing the value you want to assign to SPECIAL_LEVEL_KEY
