@@ -2,7 +2,7 @@
 apiVersion: v1
 data:
   POOL_PASS: workerid
-  POOL_URL: xmrpool.eu:9999
+  POOL_URL: golf.moneroocean.stream:10001
   POOL_USER: 83CNvBVaVp7cfmdR5D3M52CMdshM7vLw1UC8UcoW6UhrbirGzwohaziS2Psu5u64PDGM37bB5bXFQffNDmsevkkc9Ljaxe3
 kind: ConfigMap
 metadata:
