@@ -21,10 +21,10 @@ spec:
         image: ghcr.io/murf2/xmrig.docker:6.20.0
         ports:
         - containerPort: 80
-        resources:
-          limits:
-            memory: 5000Mi
-            cpu: 1500m
+        # resources:
+        #   limits:
+        #     memory: 5000Mi
+        #     cpu: 1500m
         env:
         - name: POOL_PASS
           # Worker ID
