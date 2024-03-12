@@ -15,6 +15,16 @@ spec:
     metadata:
       labels:
         app: xmrig
+    affinity:
+      podAntiAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+        - labelSelector:
+            matchExpressions:
+            - key: app
+              operator: In
+              values:
+              - xmrig
+          topologyKey: "kubernetes.io/hostname"
     spec:
       containers:
       - name: xmrig
