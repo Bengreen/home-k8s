@@ -29,11 +29,14 @@ spec:
         - name: POOL_PASS
           # Worker ID
           valueFrom:
-            configMapKeyRef:
-              # The ConfigMap containing the value you want to assign to SPECIAL_LEVEL_KEY
-              name: mining0
-              # Specify the key associated with the value
-              key: POOL_PASS
+            fieldRef:
+              fieldPath: spec.nodeName
+          # valueFrom:
+          #   configMapKeyRef:
+          #     # The ConfigMap containing the value you want to assign to SPECIAL_LEVEL_KEY
+          #     name: mining0
+          #     # Specify the key associated with the value
+          #     key: POOL_PASS
         - name: POOL_URL
           # Pool URL
           valueFrom:
