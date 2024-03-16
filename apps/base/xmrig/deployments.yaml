@@ -30,11 +30,11 @@ spec:
       - name: xmrig
         image: ghcr.io/murf2/xmrig.docker:6.20.0
         ports:
-        - containerPort: 80
-        # resources:
-        #   limits:
-        #     memory: 5000Mi
-        #     cpu: 1500m
+        # - containerPort: 80
+        resources:
+          limits:
+            # memory: 5000Mi
+            cpu: 3000m
         env:
         - name: POOL_PASS
           # Worker ID
@@ -63,3 +63,11 @@ spec:
               name: mining0
               # Specify the key associated with the value
               key: POOL_USER
+        - name: THREADS
+          # Wallet ID
+          valueFrom:
+            configMapKeyRef:
+              # The ConfigMap containing the value you want to assign to SPECIAL_LEVEL_KEY
+              name: mining0
+              # Specify the key associated with the value
+              key: THREADS
