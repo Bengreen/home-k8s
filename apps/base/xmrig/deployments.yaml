@@ -35,9 +35,9 @@ spec:
           requests:
             # memory: 5000Mi
             cpu: 2000m
-          limits:
-            # memory: 5000Mi
-            cpu: 3500m
+          # limits:
+          #   # memory: 5000Mi
+          #   cpu: 3500m
         env:
         - name: POOL_PASS
           # Worker ID
