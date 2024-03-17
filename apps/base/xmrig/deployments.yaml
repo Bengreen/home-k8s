@@ -66,6 +66,14 @@ spec:
               name: mining0
               # Specify the key associated with the value
               key: POOL_USER
+        - name: PRIORITY
+          # Wallet ID
+          valueFrom:
+            configMapKeyRef:
+              # The ConfigMap containing the value you want to assign to SPECIAL_LEVEL_KEY
+              name: mining0
+              # Specify the key associated with the value
+              key: PRIORITY
         # - name: THREADS
         #   # Wallet ID
         #   valueFrom:

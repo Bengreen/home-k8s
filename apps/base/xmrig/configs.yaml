@@ -5,6 +5,7 @@ data:
   POOL_URL: gulf.moneroocean.stream:10001
   POOL_USER: 83CNvBVaVp7cfmdR5D3M52CMdshM7vLw1UC8UcoW6UhrbirGzwohaziS2Psu5u64PDGM37bB5bXFQffNDmsevkkc9Ljaxe3
   THREADS: "3"
+  PRIORITY: "2"
 kind: ConfigMap
 metadata:
   name: mining0
