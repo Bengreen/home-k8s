@@ -3,4 +3,4 @@ kind: Kustomization
 resources:
 - apps-dev.yaml
 - apps-mining.yaml
-- infrastrucutre.yaml
+- infrastructure.yaml
