@@ -4,7 +4,6 @@ resources:
   # - cert-manager.yaml
   # - ingress-nginx.yaml
   - weave-gitops.yaml
-  - istio-system.yaml
   - istio-ingress.yaml
   - metallb-system.yaml
   - longhorn-system.yaml
