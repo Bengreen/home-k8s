@@ -9,4 +9,4 @@ spec:
   type: oci
   url: oci://ghcr.io/polecatworks/helm
   secretRef:
-    name: dockerconfigjson-ghcr-io
+    name: helm-ghcr-io
