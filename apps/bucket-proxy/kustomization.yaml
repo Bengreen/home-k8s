@@ -1,0 +1,17 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+metadata:
+  namespace: mining
+resources:
+  - ./namespace.yaml
+  - ../base/bucket-proxy
+patches:
+  - patch: |
+      - op: add
+        path: /metadata/namespace
+        value: bproxy
+      - op: replace
+        path: /metadata/namespace
+        value: bproxy
+    target:
+      kind: HelmRelease
