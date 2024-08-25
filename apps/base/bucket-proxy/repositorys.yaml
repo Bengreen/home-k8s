@@ -7,6 +7,6 @@ metadata:
 spec:
   interval: 60m
   type: oci
-  url: oci://ghcr.io/polecatworks/helm
+  url: oci://ghcr.io/polecatworks
   secretRef:
     name: helm-ghcr-io

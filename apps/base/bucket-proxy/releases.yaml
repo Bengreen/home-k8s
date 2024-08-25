@@ -7,7 +7,7 @@ spec:
   releaseName: bproxy0
   chart:
     spec:
-      chart: helm/bucket-proxy
+      chart: bucket-proxy/helm/bucket-proxy
       version: 0.0.0
       sourceRef:
         kind: HelmRepository
