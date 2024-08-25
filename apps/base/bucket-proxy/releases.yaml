@@ -18,8 +18,8 @@ spec:
       retries: 3
   values:
     image: &image
-      repository: dockerreg.k8s/polecatworks/bucket-proxy
-      tag: 0.2.0
+      repository: ghcr.io/polecatworks/bucket-proxy
+      tag: main
     # schema:
     #   image: *image
 
@@ -30,7 +30,7 @@ spec:
           os_type:
             Aws:
               region: us-east-1
-              endpoint: http://minio:9000
+              endpoint: http://minio.minio.svc:9000
               bucket_name: test
               access_key_id_file: s3/access_key_id
               secret_key_file: s3/secret_key
