@@ -7,7 +7,8 @@ spec:
   releaseName: bproxy0
   chart:
     spec:
-      chart: bucket-proxy
+      chart: helm/bucket-proxy
+      version: 0.0.0
       sourceRef:
         kind: HelmRepository
         namespace: flux-system
