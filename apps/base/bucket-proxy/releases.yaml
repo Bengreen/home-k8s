@@ -25,6 +25,9 @@ spec:
     #   image: *image
 
     configs:
+      webservice:
+        prefix:
+          name: bproxy
       persistence:
         object_store:
           prefix: myfiles
