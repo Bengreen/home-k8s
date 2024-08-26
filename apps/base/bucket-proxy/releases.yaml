@@ -35,7 +35,7 @@ spec:
             Aws:
               region: us-east-1
               endpoint: http://minio.minio.svc:9000
-              bucket_name: test
+              bucket_name: bucket1
               access_key_id_file: s3/access_key_id
               secret_key_file: s3/secret_key
               allow_http: true
