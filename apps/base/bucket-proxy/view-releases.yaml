@@ -7,7 +7,7 @@ spec:
   releaseName: bview0
   chart:
     spec:
-      chart: bucket-proxy/helm/nginx-view
+      chart: bucket-view/helm/nginx-view
       version: 0.0.0
       sourceRef:
         kind: HelmRepository
