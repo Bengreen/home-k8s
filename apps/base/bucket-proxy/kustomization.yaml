@@ -4,3 +4,4 @@ resources:
   - repositorys.yaml
   - proxy-releases.yaml
   - view-releases.yaml
+  - virtualservice.yaml

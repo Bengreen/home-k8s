@@ -1,0 +1,24 @@
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: bproxy
+spec:
+  hosts:
+  - bproxy.k8s
+  gateways:
+  - istio-ingress/k8s-gateway
+  - mesh # applies to all the sidecars in the mesh
+  http:
+  - name: bproxy
+    match:
+      - uri:
+          previx: /bproxy
+    route:
+    - destination:
+        host: bproxy0-bucket-proxy
+  - name: ui
+    # Default for all traffic that does not match an API path (above)
+    route:
+    - destination:
+        host: bview0-nginx-view.bproxy
