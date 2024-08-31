@@ -18,7 +18,9 @@ spec:
     remediation:
       retries: 3
   values:
-    image: &image
+    imagePullSecrets:
+      - name: dockerconfigjson-ghcr-io
+    image:
       repository: ghcr.io/polecatworks/bucket-proxy
       tag: main
     # schema:
