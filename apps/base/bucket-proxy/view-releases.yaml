@@ -1,0 +1,25 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: bview0
+spec:
+  releaseName: bview0
+  chart:
+    spec:
+      chart: bucket-proxy/helm/nginx-view
+      version: 0.0.0
+      sourceRef:
+        kind: HelmRepository
+        namespace: flux-system
+        name: polecatworks
+  interval: 50m
+  install:
+    remediation:
+      retries: 3
+  values:
+    image:
+      repository: ghcr.io/polecatworks/bucket-view
+      tag: main
+    # schema:
+    #   image: *image
