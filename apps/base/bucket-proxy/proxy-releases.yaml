@@ -23,6 +23,8 @@ spec:
     image:
       repository: ghcr.io/polecatworks/bucket-proxy
       tag: main
+      pullPolicy: Always
+
     # schema:
     #   image: *image
 
