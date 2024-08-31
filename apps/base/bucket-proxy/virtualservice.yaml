@@ -14,7 +14,7 @@ spec:
   - name: bproxy
     match:
       - uri:
-          previx: /bproxy
+          prefix: /bproxy
     route:
     - destination:
         host: bproxy0-bucket-proxy
