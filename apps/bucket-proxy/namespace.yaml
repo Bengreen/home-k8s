@@ -4,4 +4,4 @@ metadata:
   name: bproxy
   labels:
     toolkit.fluxcd.io/tenant: bucket-proxy
-    istio-injection: enabled
+    # istio-injection: enabled
