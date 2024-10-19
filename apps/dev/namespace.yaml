@@ -4,3 +4,4 @@ metadata:
   name: dev
   labels:
     toolkit.fluxcd.io/tenant: dev
+    istio-injection: "false"
