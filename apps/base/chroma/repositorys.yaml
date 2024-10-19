@@ -1,0 +1,9 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: chroma
+  namespace: flux-system
+spec:
+  interval: 69m
+  url: https://amikos-tech.github.io/chromadb-chart

@@ -1,0 +1,21 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: chromadb
+spec:
+  releaseName: chromadb
+  chart:
+    spec:
+      chart: chromadb
+      sourceRef:
+        kind: HelmRepository
+        namespace: flux-system
+        name: chroma
+  interval: 50m
+  install:
+    remediation:
+      retries: 3
+  values:
+    chromadb:
+      allowReset: "true"
