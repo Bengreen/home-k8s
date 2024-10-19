@@ -3,3 +3,4 @@ kind: Kustomization
 resources:
   - repositorys.yaml
   - releases.yaml
+  - virtualservices.yaml

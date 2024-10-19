@@ -33,21 +33,3 @@ spec:
     resources:
       requests:
         memory: 1Gi
----
-apiVersion: networking.istio.io/v1beta1
-kind: VirtualService
-metadata:
-  name: minio
-  namespace: minio
-spec:
-  hosts:
-  - minio.k8s
-  gateways:
-  - istio-ingress/k8s-gateway
-  - mesh # applies to all the sidecars in the mesh
-  http:
-  - route:
-    - destination:
-        host: minio-console.minio.svc.cluster.local
-        port:
-          number: 9001
