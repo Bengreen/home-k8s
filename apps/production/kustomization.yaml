@@ -5,6 +5,7 @@ resources:
   # - ../base/podinfo
   # - ../base/home-assistant
   - ../base/minio
+  - ../base/kiali
 patches: []
   # - path: podinfo-values.yaml
   #   target:

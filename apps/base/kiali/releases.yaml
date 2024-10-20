@@ -1,0 +1,22 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: kiali-server
+  namespace: istio-system
+spec:
+  releaseName: kiali-server
+  chart:
+    spec:
+      chart: kiali-server
+      sourceRef:
+        kind: HelmRepository
+        namespace: flux-system
+        name: kiali
+  interval: 50m
+  install:
+    remediation:
+      retries: 3
+  values:
+    auth:
+      strategy: anonymous
