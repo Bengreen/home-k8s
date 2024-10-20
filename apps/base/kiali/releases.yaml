@@ -18,6 +18,4 @@ spec:
   install:
     remediation:
       retries: 3
-  values:
-    auth:
-      strategy: anonymous
+  values: {}
