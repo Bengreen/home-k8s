@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: kiali-server
-      version: 1.86.*
+      version: 1.85.*
       sourceRef:
         kind: HelmRepository
         namespace: flux-system
