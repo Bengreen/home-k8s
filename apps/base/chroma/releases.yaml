@@ -18,4 +18,6 @@ spec:
       retries: 3
   values:
     chromadb:
+      auth:
+        enabled: false
       allowReset: "true"
