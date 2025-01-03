@@ -14,5 +14,3 @@ spec:
   - route:
     - destination:
         host: chromadb.dev.svc.cluster.local
-        port:
-          number: 8000
