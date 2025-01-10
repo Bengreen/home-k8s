@@ -4,4 +4,4 @@ resources:
   - namespace.yaml
   - repositorys.yaml
   - releases.yaml
-  # - virtualservices.yaml
+  - virtualservices.yaml
