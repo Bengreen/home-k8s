@@ -29,6 +29,8 @@ patches:
           registry: ghcr.io
           repository: polecatworks/postgresql-vector
           tag: main
+          pullSecrets:
+            - name: dockerconfigjson-ghcr-io
       - op: add
         path: /spec/values/global
         value:
