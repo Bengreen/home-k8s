@@ -11,7 +11,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         namespace: flux-system
-        name: postgresql
+        name: bitnami
   interval: 50m
   install:
     remediation:
