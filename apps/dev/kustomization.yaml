@@ -8,6 +8,8 @@ resources:
   # - ./virtualservice.yaml
   # - ../base/chroma
   - ../base/postgresql
+  - ../base/bitnami-repo
+  - ../base/milvus
   # - ../base/minio
 patches:
   - patch: |
