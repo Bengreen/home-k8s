@@ -9,7 +9,7 @@ resources:
   # - ../base/chroma
   - ../base/postgresql
   - ../base/bitnami-repo
-  - ../base/milvus
+  # - ../base/milvus
   # - ../base/minio
 patches:
   - patch: |
