@@ -21,8 +21,10 @@ patches:
       kind: HelmRelease
   - patch: |
       - op: add
-        path: /spec/values/image/repository
-        value: ramsrib/pgvector
+        path: /spec/values/image
+        value:
+          repository: ramsrib/pgvector
+          tag: 16
     target:
       kind: HelmRelease
       name: postgresql
