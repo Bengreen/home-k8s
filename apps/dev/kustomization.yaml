@@ -19,12 +19,18 @@ patches:
         value: dev
     target:
       kind: HelmRelease
-  - patch: |
-      - op: add
-        path: /spec/values/image
-        value:
-          repository: ramsrib/pgvector
-          tag: 16
-    target:
-      kind: HelmRelease
-      name: postgresql
+  # # Does not work as needs Bitnami image: Suggestion here to solve https://github.com/bitnami/containers/issues/32677
+  # - patch: |
+  #     - op: add
+  #       path: /spec/values/image
+  #       value:
+  #         repository: ramsrib/pgvector
+  #         tag: "16"
+  #     - op: add
+  #       path: /spec/values/global
+  #       value:
+  #         security:
+  #           allowInsecureImages: true
+  #   target:
+  #     kind: HelmRelease
+  #     name: postgresql
