@@ -9,7 +9,7 @@ resources:
   # - ../base/chroma
   - ../base/postgresql
   - ../base/bitnami-repo
-  # - ../base/milvus
+  - ../base/milvus
   # - ../base/minio
 patches:
   - patch: |
@@ -22,17 +22,18 @@ patches:
     target:
       kind: HelmRelease
   # # Does not work as needs Bitnami image: Suggestion here to solve https://github.com/bitnami/containers/issues/32677
-  # - patch: |
-  #     - op: add
-  #       path: /spec/values/image
-  #       value:
-  #         repository: ramsrib/pgvector
-  #         tag: "16"
-  #     - op: add
-  #       path: /spec/values/global
-  #       value:
-  #         security:
-  #           allowInsecureImages: true
-  #   target:
-  #     kind: HelmRelease
-  #     name: postgresql
+  - patch: |
+      - op: add
+        path: /spec/values/image
+        value:
+          registry: ghcr.io
+          repository: polecatworks/postgresql-vector
+          tag: main
+      - op: add
+        path: /spec/values/global
+        value:
+          security:
+            allowInsecureImages: true
+    target:
+      kind: HelmRelease
+      name: postgresql
