@@ -13,6 +13,6 @@ spec:
   http:
   - route:
     - destination:
-        host: prometheus-server.prometheus.svc.cluster.local
+        host: prometheus-stack-kube-prom-prometheus.prometheus.svc.cluster.local
         port:
-          number: 80
+          number: 9090
