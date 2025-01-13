@@ -2,13 +2,13 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: prometheus
+  name: prometheus-stack
   namespace: prometheus
 spec:
-  releaseName: prometheus
+  releaseName: prometheus-stack
   chart:
     spec:
-      chart: prometheus
+      chart: kube-prometheus-stack
       sourceRef:
         kind: HelmRepository
         namespace: prometheus
