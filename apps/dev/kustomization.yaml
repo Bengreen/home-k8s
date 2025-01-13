@@ -9,6 +9,7 @@ resources:
   # - ../base/chroma
   - ../base/postgresql
   - ../base/helm-repos
+  - ../base/k8s-python
   # - ../base/milvus
   # - ../base/minio
 patches:

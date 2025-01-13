@@ -1,0 +1,45 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: k8s-python
+spec:
+  releaseName: k8s-python
+  chart:
+    spec:
+      chart: k8s-python/helm/k8s-python
+      version: 0.0.0
+      sourceRef:
+        kind: HelmRepository
+        namespace: flux-system
+        name: polecatworks
+  interval: 50m
+  install:
+    remediation:
+      retries: 3
+  values:
+    imagePullSecrets:
+      - name: dockerconfigjson-ghcr-io
+    image:
+      repository: ghcr.io/polecatworks/k8s-python
+      tag: main
+      pullPolicy: Always
+
+    # schema:
+    #   image: *image
+
+    configs:
+      webservice:
+        prefix:
+          name: bproxy
+      persistence:
+        object_store:
+          prefix: myfiles
+          os_type:
+            Aws:
+              region: us-east-1
+              endpoint: http://minio.minio.svc:9000
+              bucket_name: bucket1
+              access_key_id_file: s3/access_key_id
+              secret_key_file: s3/secret_key
+              allow_http: true
