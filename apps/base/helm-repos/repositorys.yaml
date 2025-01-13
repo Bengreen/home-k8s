@@ -20,3 +20,12 @@ spec:
   url: oci://ghcr.io/polecatworks
   secretRef:
     name: helm-ghcr-io
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: runix
+  namespace: flux-system
+spec:
+  interval: 69m
+  url: https://helm.runix.net
