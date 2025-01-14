@@ -2,8 +2,8 @@
 apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
-  name: prometheus
-  namespace: prometheus
+  name: k8s-python
+  namespace: dev
 spec:
   hosts:
   - dev.k8s
