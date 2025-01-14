@@ -1,0 +1,18 @@
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: prometheus
+  namespace: prometheus
+spec:
+  hosts:
+  - dev.k8s
+  gateways:
+  - istio-ingress/k8s-gateway
+  - mesh # applies to all the sidecars in the mesh
+  http:
+  - route:
+    - destination:
+        host: k8s-python
+        port:
+          number: 80

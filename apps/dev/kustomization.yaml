@@ -6,7 +6,7 @@ resources:
   - ./namespace.yaml
   - ./monitoring.yaml
   - ./pg-secrets.yaml
-  # - ./virtualservice.yaml
+  - ./virtualservice.yaml
   # - ../base/chroma
   - ../base/postgresql
   - ../base/helm-repos
