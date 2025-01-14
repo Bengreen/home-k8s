@@ -2,7 +2,7 @@
 apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
-  name: k8s-python
+  name: dev-k8s
   namespace: dev
 spec:
   hosts:
