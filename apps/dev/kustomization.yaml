@@ -4,6 +4,7 @@ metadata:
   namespace: dev
 resources:
   - ./namespace.yaml
+  - ./monitoring.yaml
   - ./pg-secrets.yaml
   # - ./virtualservice.yaml
   # - ../base/chroma
