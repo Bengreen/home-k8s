@@ -10,12 +10,10 @@ metadata:
 spec:
   podMetricsEndpoints:
   - path: /stats/prometheus
-    portNumber: 15020
+    portNumber: 15090
   selector:
-    matchLabels: {}
-  # namespaceSelector:
-  #   matchNames:
-  #   - dev
+    matchLabels:
+      app.kubernetes.io/name: k8s-python
 ---
 apiVersion: monitoring.coreos.com/v1
 kind: Prometheus
