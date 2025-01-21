@@ -8,6 +8,7 @@ resources:
   - ./pg-secrets.yaml
   - ./virtualservice.yaml
   - ./k8s-micro.yaml
+  - ./keycloak.yaml
   # - ../base/chroma
   - ../base/postgresql
   - ../base/helm-repos
