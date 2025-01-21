@@ -11,7 +11,17 @@ spec:
   - istio-ingress/k8s-gateway
   - mesh # applies to all the sidecars in the mesh
   http:
-  - route:
+  - name: auth
+    match:
+    - uri:
+        prefix: /auth/
+    route:
+    - destination:
+        host: keycloak
+        port:
+          number: 80
+  - name: default
+    route:
     - destination:
         host: k8s-python
         port:
