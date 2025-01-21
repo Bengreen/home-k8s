@@ -10,6 +10,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: keycloak-operator
+  namespace: keycloak-operator
 spec:
   releaseName: keycloak-operator
   chart:
