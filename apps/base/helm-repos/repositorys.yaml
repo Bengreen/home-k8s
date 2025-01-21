@@ -29,3 +29,12 @@ metadata:
 spec:
   interval: 69m
   url: https://helm.runix.net
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: epamedp
+  namespace: flux-system
+spec:
+  interval: 69m
+  url: https://epam.github.io/edp-helm-charts/stable
