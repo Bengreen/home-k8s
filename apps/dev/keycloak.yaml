@@ -17,4 +17,4 @@ spec:
     remediation:
       retries: 3
   values:
-    httpRelativePath: /auth
+    httpRelativePath: /auth/
