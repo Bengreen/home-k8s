@@ -10,7 +10,7 @@ spec:
       chart: kube-prometheus-stack
       sourceRef:
         kind: HelmRepository
-        namespace: monitoring
+        namespace: flux-system
         name: prometheus-community
   interval: 50m
   install:
