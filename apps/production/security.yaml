@@ -12,7 +12,7 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ./apps/security
+  path: ./apps/base/security
   prune: true
   wait: true
   timeout: 5m0s
