@@ -38,3 +38,12 @@ metadata:
 spec:
   interval: 69m
   url: https://epam.github.io/edp-helm-charts/stable
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: prometheus-community
+  namespace: flux-system
+spec:
+  interval: 60m
+  url: https://prometheus-community.github.io/helm-charts

@@ -6,7 +6,7 @@ resources:
   # - ../base/home-assistant
   - ../base/minio
   - ../base/kiali
-  - ../base/prometheus
+  - ./prometheus.yaml
 patches: []
   # - path: podinfo-values.yaml
   #   target:

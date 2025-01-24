@@ -5,6 +5,7 @@ metadata:
   name: apps-dev
   namespace: flux-system
 spec:
+  targetNamespace: dev
   interval: 10m0s
   # dependsOn:
   #   - name: infra-configs
