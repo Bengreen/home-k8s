@@ -3,7 +3,6 @@ apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
   name: dev-k8s
-  namespace: dev
 spec:
   hosts:
   - dev.k8s
@@ -11,9 +10,12 @@ spec:
   - istio-ingress/k8s-gateway
   - mesh # applies to all the sidecars in the mesh
   http:
-  - name: default
+  - name: auth
+    match:
+    - uri:
+        prefix: /auth/
     route:
     - destination:
-        host: k8s-python
+        host: keycloak
         port:
           number: 80
