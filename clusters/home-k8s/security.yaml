@@ -5,6 +5,7 @@ metadata:
   name: security
   namespace: flux-system
 spec:
+  targetNamespace: security
   interval: 10m0s
   # dependsOn:
   #   - name: infra-configs
