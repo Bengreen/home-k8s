@@ -2,7 +2,7 @@
 apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
-  name: dev-k8s
+  name: security
 spec:
   hosts:
   - dev.k8s
