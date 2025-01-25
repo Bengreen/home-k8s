@@ -24,4 +24,5 @@ spec:
   install:
     remediation:
       retries: 3
-  values: {}
+  values:
+    clusterReconciliationEnabled: true
