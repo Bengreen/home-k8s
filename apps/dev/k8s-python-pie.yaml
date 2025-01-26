@@ -29,8 +29,20 @@ spec:
     devsecops:
       RequestAuthentication:
         jwtRules:
-          - issuer: http://keycloak.security/auth/realms/dev
+          - issuer: http://dev.k8s/auth/realms/dev
             jwksUri: http://keycloak.security/auth/realms/dev/protocol/openid-connect/certs
             forwardOriginalToken: true
             audiences:
-              - app0
+              - app-pie
+      AuthorizationPolicy:
+        rules:
+        - to:
+          - operation:
+              methods:
+              - GET
+              paths:
+              - /info*
+          when:
+          - key: request.auth.claims[iss]
+            values:
+            - https://accounts.google.com
