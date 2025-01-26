@@ -29,5 +29,8 @@ spec:
     devsecops:
       RequestAuthentication:
         jwtRules:
-          - issuer: "issuer-foo"
-            jwksUri: http://keycloak.security.svc.cluster.local/auth/realms/dev/protocol/openid-connect/certs
+          - issuer: http://keycloak.security/auth/realms/dev
+            jwksUri: http://keycloak.security/auth/realms/dev/protocol/openid-connect/certs
+            forwardOriginalToken: true
+            audiences:
+              - app0
