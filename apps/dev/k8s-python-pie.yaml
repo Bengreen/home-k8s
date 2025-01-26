@@ -41,8 +41,8 @@ spec:
               methods:
               - GET
               paths:
-              - /info*
+              - /pie/v0/chunks
           when:
-          - key: request.auth.claims[iss]
+          - key: request.auth.claims[resource_access][app-pie][roles]
             values:
-            - https://accounts.google.com
+            - chunks-read
