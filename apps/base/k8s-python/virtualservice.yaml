@@ -18,8 +18,8 @@ spec:
     route:
     - destination:
         host: bproxy0-bucket-proxy
-  - name: ui
-    # Default for all traffic that does not match an API path (above)
-    route:
-    - destination:
-        host: bview0-nginx-view
+  # - name: ui
+  #   # Default for all traffic that does not match an API path (above)
+  #   route:
+  #   - destination:
+  #       host: bview0-nginx-view

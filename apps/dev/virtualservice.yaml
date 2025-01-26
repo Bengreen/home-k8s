@@ -11,7 +11,10 @@ spec:
   - istio-ingress/k8s-gateway
   - mesh # applies to all the sidecars in the mesh
   http:
-  - name: default
+  - name: k8s-python
+    match:
+      - uri:
+          prefix: /k8s-python
     route:
     - destination:
         host: k8s-python

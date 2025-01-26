@@ -4,7 +4,7 @@ kind: HelmRelease
 metadata:
   name: k8s-python
 spec:
-  releaseName: k8s-python
+  releaseName: pie
   chart:
     spec:
       chart: k8s-python/helm/k8s-python
@@ -18,9 +18,16 @@ spec:
     remediation:
       retries: 3
   values:
+    webservice:
+      prefix: pie/v0
     imagePullSecrets:
       - name: dockerconfigjson-ghcr-io
     image:
       repository: ghcr.io/polecatworks/k8s-python
       tag: main
       pullPolicy: Always
+    # devsecops:
+    #   RequestAuthentication:
+    #     jwtRules:
+    #       - issuer: "issuer-foo"
+    #         jwksUri: http://keycloak.security.svc.cluster.local/auth/realms/dev/protocol/openid-connect/certs
