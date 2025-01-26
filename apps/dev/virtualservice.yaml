@@ -11,12 +11,12 @@ spec:
   - istio-ingress/k8s-gateway
   - mesh # applies to all the sidecars in the mesh
   http:
-  - name: k8s-python
+  - name: pie-k8s-python
     match:
       - uri:
-          prefix: /k8s-python
+          prefix: /pie/v0/
     route:
     - destination:
-        host: k8s-python
+        host: pie-k8s-python
         port:
           number: 80

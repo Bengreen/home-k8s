@@ -11,7 +11,7 @@ resources:
   # - ../base/chroma
   - ../base/postgresql
   # - ../base/helm-repos
-  - ../base/k8s-python
+  - ../k8s-python-pie.yaml
   # - ../base/milvus
   # - ../base/minio
 patches:
