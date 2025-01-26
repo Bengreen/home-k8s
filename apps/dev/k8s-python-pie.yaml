@@ -26,8 +26,8 @@ spec:
       repository: ghcr.io/polecatworks/k8s-python
       tag: main
       pullPolicy: Always
-    # devsecops:
-    #   RequestAuthentication:
-    #     jwtRules:
-    #       - issuer: "issuer-foo"
-    #         jwksUri: http://keycloak.security.svc.cluster.local/auth/realms/dev/protocol/openid-connect/certs
+    devsecops:
+      RequestAuthentication:
+        jwtRules:
+          - issuer: "issuer-foo"
+            jwksUri: http://keycloak.security.svc.cluster.local/auth/realms/dev/protocol/openid-connect/certs
