@@ -20,3 +20,12 @@ spec:
         host: pie-k8s-python
         port:
           number: 80
+  - name: ui-view
+    match:
+      - uri:
+          prefix: /
+    route:
+    - destination:
+        host: ui-view
+        port:
+          number: 80
