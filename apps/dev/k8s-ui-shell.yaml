@@ -4,7 +4,7 @@ kind: HelmRelease
 metadata:
   name: k8s-ui-shell
 spec:
-  releaseName: k8s-ui-shell
+  releaseName: ui-shell
   chart:
     spec:
       chart: bucket-view/helm/nginx-view
@@ -21,6 +21,6 @@ spec:
     imagePullSecrets:
       - name: dockerconfigjson-ghcr-io
     image:
-      repository: ghcr.io/polecatworks/k8s-micro
+      repository: ghcr.io/polecatworks/bucket-view
       tag: main
       pullPolicy: Always
