@@ -2,7 +2,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: k8s-python
+  name: k8s-python-pie
 spec:
   releaseName: pie
   chart:
