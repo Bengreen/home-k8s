@@ -46,3 +46,14 @@ spec:
           - key: request.auth.claims[resource_access][app-pie][roles]
             values:
             - chunks-read
+        - to:
+          - operation:
+              methods:
+              - POST
+              - PUT
+              paths:
+              - /pie/v0/chunks
+          when:
+          - key: request.auth.claims[resource_access][app-pie][roles]
+            values:
+            - chunks-write
