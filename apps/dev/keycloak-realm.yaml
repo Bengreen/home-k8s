@@ -76,6 +76,20 @@ spec:
         - chunks-read
 ---
 apiVersion: v1.edp.epam.com/v1
+kind: KeycloakRealmGroup
+metadata:
+  name: devwriters
+spec:
+  realmRef:
+    name: dev
+    kind: KeycloakRealm
+  name: DevWriters
+  clientRoles:
+    - clientId: app-pie
+      roles:
+        - chunks-write
+---
+apiVersion: v1.edp.epam.com/v1
 kind: KeycloakRealmUser
 metadata:
   name: dev-user-john-snow
@@ -95,6 +109,28 @@ spec:
   attributes:
     foo: "bar"
     baz: "jazz"
+  passwordSecret:
+    name: keycloak-user-jon-snow
+    key: password
+---
+apiVersion: v1.edp.epam.com/v1
+kind: KeycloakRealmUser
+metadata:
+  name: dev-user-john-snow2
+spec:
+  realmRef:
+    name: dev
+    kind: KeycloakRealm
+  username: johnsnow2
+  firstName: "John"
+  lastName: "Snow2"
+  email: "john.snow132@example.com"
+  enabled: true
+  emailVerified: true
+  keepResource: true
+  groups:
+    - DevReaders
+    - DevWriters
   passwordSecret:
     name: keycloak-user-jon-snow
     key: password
