@@ -196,6 +196,6 @@ spec:
   # homeUrl: /home/
   # defaultClientScopes:
   #   - groups
-  # redirectUris:
-  #   - /url1/*
+  redirectUris:
+    - '*'
   #   - /url2/*
