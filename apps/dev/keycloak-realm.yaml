@@ -43,7 +43,7 @@ metadata:
   name:  keycloak-user-jon-snow
 type: Opaque
 data:
-  password: am9obnNub3dwdw== # base64-encoded value of "pass"
+  password: am9obnNub3dwdw== # base64-encoded value of "johnsnowpw"
 # ---
 # apiVersion: v1.edp.epam.com/v1
 # kind: KeycloakRealmRole
@@ -189,6 +189,7 @@ spec:
   public: true
   standardFlowEnabled: true
   directAccess: true
+  implicitFlowEnabled: true
   optionalClientScopes:
     - client-audience
   # webUrl: https://argocd.example.com
