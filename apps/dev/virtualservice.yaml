@@ -20,6 +20,15 @@ spec:
         host: pie-k8s-python
         port:
           number: 80
+  - name: cake-k8s-python
+    match:
+      - uri:
+          prefix: /cake/v0/
+    route:
+    - destination:
+        host: cake-k8s-python
+        port:
+          number: 80
   - name: ui-shell
     match:
       - uri:
