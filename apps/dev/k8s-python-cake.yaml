@@ -4,7 +4,7 @@ kind: HelmRelease
 metadata:
   name: k8s-python-cake
 spec:
-  releaseName: pie
+  releaseName: cake
   chart:
     spec:
       chart: k8s-python/helm/k8s-python
