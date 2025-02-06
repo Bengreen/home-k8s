@@ -203,4 +203,6 @@ spec:
   #   - groups
   redirectUris:
     - '*'
+  webOrigins:
+    - '*'
   #   - /url2/*
