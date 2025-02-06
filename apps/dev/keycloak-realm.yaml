@@ -128,6 +128,8 @@ spec:
   enabled: true
   emailVerified: true
   keepResource: true
+  roles:
+    - offline_access
   groups:
     - DevReaders
     - DevWriters
