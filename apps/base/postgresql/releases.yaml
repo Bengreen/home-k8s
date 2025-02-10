@@ -18,6 +18,7 @@ spec:
       retries: 3
   values:
     postgresql:
+      # kubectl create secret generic pg-access --from-literal=password=mypw --from-literal=repmgr-password=reppw
       existingSecret: pg-access
   # values:
   #   auth:
@@ -44,7 +45,7 @@ spec:
         name: runix
   interval: 50m
   values:
-    existingSecret: pgadmin4-password
+    existingSecret: pg-access
     env:
       # can be email or nickname
       email: admin@admin.com
