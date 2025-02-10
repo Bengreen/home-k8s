@@ -7,30 +7,6 @@ metadata:
     toolkit.fluxcd.io/tenant: dbs
     istio-injection: disabled
 ---
-apiVersion: source.toolkit.fluxcd.io/v1
-kind: GitRepository
-metadata:
-  name: cert-manager
-  namespace: flux-system
-spec:
-  interval: 24h
-  ref:
-    branch: master
-  url: https://github.com/cert-manager/cert-manager.git
----
-apiVersion: kustomize.toolkit.fluxcd.io/v1
-kind: Kustomization
-metadata:
-  name: cert-manager-crds
-  namespace: flux-system
-spec:
-  interval: 10m0s
-  path: ./deploy/crds
-  prune: true
-  sourceRef:
-    kind: GitRepository
-    name: cert-manager
----
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
@@ -44,6 +20,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         namespace: flux-system
-        name: jetstack
+        name: bitnami
   interval: 50m
-  values: {}
+  values:
+    installCRDs: true
