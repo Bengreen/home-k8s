@@ -1,0 +1,34 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: cert-manager
+  labels:
+    toolkit.fluxcd.io/tenant: dbs
+    istio-injection: disabled
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: cert-manager
+  namespace: flux-system
+spec:
+  targetNamespace: cert-manager
+  interval: 10m0s
+  # dependsOn:
+  #   - name: infra-configs
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  path: ./apps/base/cert-manager
+  prune: true
+  wait: true
+  timeout: 5m0s
+  # patches:
+  #   - patch: |
+  #       - op: replace
+  #         path: /metadata/namespace
+  #         value: dev
+  #     target:
+  #       kind: HelmRelease
+  #       name: postgresql
