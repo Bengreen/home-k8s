@@ -12,7 +12,7 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ./apps/base/postgresql
+  path: ./apps/base/dbs
   prune: true
   wait: true
   timeout: 5m0s
