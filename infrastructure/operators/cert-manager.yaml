@@ -15,7 +15,7 @@ metadata:
 spec:
   interval: 24h
   ref:
-    branch: main
+    branch: master
   url: https://github.com/cert-manager/cert-manager.git
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
