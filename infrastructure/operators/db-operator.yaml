@@ -1,0 +1,26 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: db-operator
+  labels:
+    toolkit.fluxcd.io/tenant: dbs
+    istio-injection: disabled
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: db-operator
+  namespace: db-operator
+spec:
+  releaseName: db-operator
+  chart:
+    spec:
+      chart: db-operator
+      sourceRef:
+        kind: HelmRepository
+        namespace: flux-system
+        name: db-operator
+  interval: 50m
+  values:
+    installCRDs: true
