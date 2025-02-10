@@ -36,6 +36,10 @@ metadata:
   name: pgadmin4
 spec:
   releaseName: pgadmin
+  timeout: 10m
+  install:
+    remediation:
+      retries: 3
   chart:
     spec:
       chart: pgadmin4
