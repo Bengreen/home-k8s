@@ -11,7 +11,7 @@ resources:
   - ./k8s-ui-shell.yaml
   - ./keycloak-realm.yaml
   # - ../base/chroma
-  - ../base/postgresql
+  # - ../base/postgresql
   # - ../base/helm-repos
   - ./k8s-python-pie.yaml
   - ./k8s-python-cake.yaml
