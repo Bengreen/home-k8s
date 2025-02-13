@@ -10,7 +10,7 @@ spec:
     enable: false
     cron: "0 0 * * *"
   # secret in which the credentials for the database should be stored (same namespace)
-  secretName: keycloak-postgresql2
+  secretName: keycloak-postgresql
   # the content of the secret
   secretsTemplates:
     password: "{{ .Password }}"
