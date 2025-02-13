@@ -13,7 +13,7 @@ spec:
   secretName: keycloak-postgresql
   # the content of the secret
   secretsTemplates:
-    password: "{{ .Password }}"
+    db-password: "{{ .Password }}"
     # https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING
     CONNECTION_STRING: "{{ .Protocol }}://{{ .UserName }}:{{ .Password }}@{{ .DatabaseHost }}:{{ .DatabasePort }}/{{ .DatabaseName }}"
     DB_PASS: "{{ .Password }}"
