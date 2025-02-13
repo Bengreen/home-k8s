@@ -10,6 +10,7 @@ resources:
   - ./k8s-micro.yaml
   - ./k8s-ui-shell.yaml
   - ./keycloak-realm.yaml
+  - ./db-abc.yaml
   # - ../base/chroma
   # - ../base/postgresql
   # - ../base/helm-repos
