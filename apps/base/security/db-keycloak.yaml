@@ -1,0 +1,24 @@
+---
+apiVersion: kinda.rocks/v1beta1
+kind: Database
+metadata:
+  name: pg-keycloak
+spec:
+  instance: "pg-instance" # must match with DbInstance name
+  deletionProtected: false # Protection to not delete database when custom resource is deleted
+  backup:
+    enable: false
+    cron: "0 0 * * *"
+  # secret in which the credentials for the database should be stored (same namespace)
+  secretName: keycloak-postgresql2
+  # the content of the secret
+  secretsTemplates:
+    password: "{{ .Password }}"
+    # https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING
+    CONNECTION_STRING: "{{ .Protocol }}://{{ .UserName }}:{{ .Password }}@{{ .DatabaseHost }}:{{ .DatabasePort }}/{{ .DatabaseName }}"
+    DB_PASS: "{{ .Password }}"
+    DB_USER: "{{ .UserName }}"
+    DB_HOST: "{{ .DatabaseHost }}"
+    DB_PORT: "{{ .DatabasePort }}"
+    DB_NAME: "{{ .DatabaseName }}"
+    DB_TYPE: "{{ .Protocol }}"
