@@ -21,16 +21,16 @@ spec:
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: phpadmin
+  name: phpmyadmin
 spec:
-  releaseName: phpadmin
+  releaseName: phpmyadmin
   timeout: 10m
   install:
     remediation:
       retries: 3
   chart:
     spec:
-      chart: phpadmin
+      chart: phpmyadmin
       sourceRef:
         kind: HelmRepository
         namespace: flux-system
