@@ -18,11 +18,11 @@ spec:
       retries: 3
   values:
     httpRelativePath: /auth/
-  postgresql:
-    enabled=false
-  externalDatabase:
-    host: postgresql-postgresql-ha-pgpool.dbs.svc.cluster.local
-    user: security-pg-keycloak
-    database: security-pg-keycloak
-    port: 5432
-    existingSecret: keycloak-postgresql
+    postgresql:
+      enabled: false
+    externalDatabase:
+      host: postgresql-postgresql-ha-pgpool.dbs.svc.cluster.local
+      user: security-pg-keycloak
+      database: security-pg-keycloak
+      port: 5432
+      existingSecret: keycloak-postgresql
