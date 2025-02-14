@@ -33,7 +33,12 @@ spec:
         name: longhorn
         namespace: flux-system
       interval: 12h
-  values: {}
+  values:
+    metrics:
+      serviceMonitor:
+        enabled: true
+        additionalLabels:
+          release: prometheus-stack
 ---
 apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
