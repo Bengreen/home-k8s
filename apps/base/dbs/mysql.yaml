@@ -1,5 +1,5 @@
 ---
-# kubectl -n dbs create secret generic mysql-access --from-literal=user=root --from-literal=password=mypw --from-literal=mysql-password=mypw --from-literal=mysql-root-password=myrootpw
+# kubectl -n dbs create secret generic mysql-access --from-literal=user=root --from-literal=password=myrootpw --from-literal=mysql-password=mypw --from-literal=mysql-root-password=myrootpw
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
