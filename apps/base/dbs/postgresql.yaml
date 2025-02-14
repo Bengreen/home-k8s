@@ -25,6 +25,7 @@ spec:
       existingSecret: pg-access
     values:
       metrics:
+        enabled: true
         serviceMonitor:
           labels:
             monitor: prometheus-stack
