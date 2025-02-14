@@ -66,3 +66,17 @@ spec:
     env:
       # can be email or nickname
       email: admin@admin.com
+---
+apiVersion: kinda.rocks/v1beta1
+kind: DbInstance
+metadata:
+  name: pg-instance
+  # cluster-scoped resource, no namespace
+spec:
+  adminSecretRef:
+    Name: pg-access # reference secret created by previous command
+    Namespace: dbs
+  engine: "postgres"
+  generic:
+    host: "postgresql-postgresql-ha-pgpool.dbs.svc.cluster.local"
+    port: 5432 # default postgres port
