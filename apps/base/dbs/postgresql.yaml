@@ -23,6 +23,13 @@ spec:
     postgresql:
       # kubectl -n dbs create secret generic pg-access --from-literal=postgres-password=mypw --from-literal=password=mypw --from-literal=repmgr-password=reppw --from-literal=user=postgres --from-literal=pgadmin=pgadminpw
       existingSecret: pg-access
+    values:
+      metrics:
+        serviceMonitor:
+          labels:
+            monitor: prometheus-stack
+
+
   # values:
   #   auth:
   #     username: myuser
