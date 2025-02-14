@@ -1,5 +1,5 @@
 ---
-# kubectl -n dbs create secret generic mysql-access --from-literal=password=mypw --from-literal=root-password=myrootpw
+# kubectl -n dbs create secret generic mysql-access --from-literal=user=root --from-literal=password=mypw --from-literal=mysql-root-password=myrootpw
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
@@ -40,3 +40,18 @@ spec:
         name: bitnami
   interval: 50m
   values: {}
+---
+# create a DBInstance pointing to my mysql instance
+apiVersion: kinda.rocks/v1beta1
+kind: DbInstance
+metadata:
+  name: mysql-instance
+  # cluster-scoped resource, no namespace
+spec:
+  adminSecretRef:
+    Name: mysql-access # reference secret created by previous command
+    Namespace: dbs
+  engine: mysql
+  generic:
+    host: "mysql-mysql.dbs.svc.cluster.local"
+    port: 3306 # default mysql port
