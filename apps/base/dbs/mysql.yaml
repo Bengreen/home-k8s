@@ -20,6 +20,12 @@ spec:
   values:
     auth:
       existingSecret: mysql-access
+    metrics:
+      enabled: true
+      serviceMonitor:
+        enabled: true
+        labels:
+          release: prometheus-stack
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
