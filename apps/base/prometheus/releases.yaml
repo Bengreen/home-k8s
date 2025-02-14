@@ -18,4 +18,9 @@ spec:
       retries: 3
   # Default values
   # https://github.com/stefanprodan/podinfo/blob/master/charts/podinfo/values.yaml
-  values: {}
+  values:
+    serviceMonitorSelector:
+      serviceMonitorSelector:
+        matchExpressions:
+        - { key: release, operator: In, values: [prometheus-stack] }
+        - { key: monitor, operator: In, values: [prometheus-stack] }
