@@ -22,8 +22,8 @@ spec:
     prometheus:
       prometheusSpec:
         serviceMonitorSelector:
-          matchLabels:
-            release: prometheus-stack
-          # matchExpressions:
-          # - { key: release, operator: In, values: [prometheus-stack] }
+          # matchLabels:
+          #   release: prometheus-stack
+          matchExpressions:
+          - { key: release, operator: In, values: [prometheus-stack] }
           # - { key: monitor, operator: In, values: [prometheus-stack] }
