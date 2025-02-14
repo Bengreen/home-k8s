@@ -28,7 +28,7 @@ spec:
       serviceMonitor:
         enabled: true
         labels:
-          monitor: prometheus-stack
+          release: prometheus-stack
 
 
   # values:
