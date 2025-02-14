@@ -13,7 +13,7 @@ metadata:
   name: cloudlog
   namespace: flux-system
 spec:
-  targetNamespace: dbs
+  targetNamespace: cloudlog
   interval: 10m0s
   # dependsOn:
   #   - name: infra-configs
