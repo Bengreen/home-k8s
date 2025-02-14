@@ -4,15 +4,15 @@
 apiVersion: kinda.rocks/v1beta1
 kind: Database
 metadata:
-  name: mysql-cloudlog
+  name: pg-log4ham
 spec:
-  instance: mysql-instance # must match with DbInstance name
+  instance: pg-instance # must match with DbInstance name
   deletionProtected: false # Protection to not delete database when custom resource is deleted
   backup:
     enable: false
     cron: "0 0 * * *"
   # secret in which the credentials for the database should be stored (same namespace)
-  secretName: cloudlog-mysql
+  secretName: log4ham-pg
   # the content of the secret
   secretsTemplates:
     CONNECTION_STRING: "{{ .Protocol }}://{{ .UserName }}:{{ .Password }}@{{ .DatabaseHost }}:{{ .DatabasePort }}/{{ .DatabaseName }}"

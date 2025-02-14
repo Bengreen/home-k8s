@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: cloudlog
+  name: log4ham
   labels:
     toolkit.fluxcd.io/tenant: dbs
     istio-injection: disabled
@@ -10,17 +10,17 @@ metadata:
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: cloudlog
+  name: log4ham
   namespace: flux-system
 spec:
-  targetNamespace: cloudlog
+  targetNamespace: log4ham
   interval: 10m0s
   # dependsOn:
   #   - name: infra-configs
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ./apps/base/cloudlog
+  path: ./apps/base/log4ham
   prune: true
   wait: true
   timeout: 5m0s
