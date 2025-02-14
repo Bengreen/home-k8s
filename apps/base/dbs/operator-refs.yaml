@@ -12,3 +12,18 @@ spec:
   generic:
     host: "postgresql-postgresql-ha-pgpool.dbs.svc.cluster.local"
     port: 5432 # default postgres port
+---
+# create a DBInstance pointing to my mysql instance
+apiVersion: kinda.rocks/v1beta1
+kind: DbInstance
+metadata:
+  name: mysql-instance
+  # cluster-scoped resource, no namespace
+spec:
+  adminSecretRef:
+    Name: mysql # reference secret created by previous command
+    Namespace: dbs
+  engine: "mysql"
+  generic:
+    host: "mysql-mysql.dbs.svc.cluster.local"
+    port: 3306 # default mysql port
