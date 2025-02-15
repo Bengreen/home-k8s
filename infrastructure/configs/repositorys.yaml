@@ -16,7 +16,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 60m
-  url: oci://ghcr.io/polecatworks
+  url: oci://ghcr.io/polecatworks/helm-charts
   secretRef:
     name: helm-ghcr-io
 ---
