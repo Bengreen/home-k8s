@@ -10,6 +10,17 @@ spec:
   url: oci://registry-1.docker.io/bitnamicharts
 ---
 apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: OCIRepository
+metadata:
+  name: polecatworks
+  namespace: flux-system
+spec:
+  interval: 60m
+  url: oci://ghcr.io/polecatworks
+  secretRef:
+    name: helm-ghcr-io
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
 metadata:
   name: polecatworks
