@@ -29,9 +29,10 @@ spec:
         enabled: true
         labels:
           release: prometheus-stack
-    readRplicas:
-      persistence:
-        storageClass: longhorn-single
+    # TODO: Consider if it is safe to use longhorn-single for primaryReplicas as not clear how longhorn manages data locality
+    # primaryReplicas:
+    #   persistence:
+    #     storageClass: longhorn-single
 
   # values:
   #   auth:
@@ -62,6 +63,9 @@ spec:
         name: runix
   interval: 50m
   values:
+    persistentVolume:
+      size: 4Gi
+      storageClass: longhorn-single
     existingSecret: pg-access
     secretKeys:
       pgadminPasswordKey: pgadmin
