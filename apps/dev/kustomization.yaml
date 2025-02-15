@@ -16,7 +16,6 @@ resources:
   # - ../base/helm-repos
   - ./k8s-python-pie.yaml
   - ./k8s-python-cake.yaml
-  # - ../base/milvus
   # - ../base/minio
 patches:
   - patch: |

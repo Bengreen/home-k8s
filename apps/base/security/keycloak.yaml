@@ -17,6 +17,12 @@ spec:
     remediation:
       retries: 3
   values:
+    metrics:
+      enabled: true
+      serviceMonitor:
+        enabled: true
+        labels:
+          release: prometheus-stack
     httpRelativePath: /auth/
     postgresql:
       enabled: false
