@@ -8,17 +8,18 @@ spec:
   interval: 69m
   type: oci
   url: oci://registry-1.docker.io/bitnamicharts
----
-apiVersion: source.toolkit.fluxcd.io/v1beta2
-kind: OCIRepository
-metadata:
-  name: polecatworks
-  namespace: flux-system
-spec:
-  interval: 60m
-  url: oci://ghcr.io/polecatworks/helm-charts
-  secretRef:
-    name: dockerconfigjson-ghcr-io
+# OCIRepository is focused around a single object for repository. But we want a variety of helm charts from a single repository
+# ---
+# apiVersion: source.toolkit.fluxcd.io/v1beta2
+# kind: OCIRepository
+# metadata:
+#   name: polecatworks
+#   namespace: flux-system
+# spec:
+#   interval: 60m
+#   url: oci://ghcr.io/polecatworks/helm-charts
+#   secretRef:
+#     name: dockerconfigjson-ghcr-io
 ---
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
