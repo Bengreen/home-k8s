@@ -30,5 +30,15 @@ spec:
     metrics:
       serviceMonitor:
         enabled: true
-        additionalLabels:
-          release: prometheus-stack
+        # Modifying release is not allowed as it is a reserved label (by Minio Chart)
+        # additionalLabels:
+        #   release: prometheus-stack
+  postRenderers:
+    - kustomize:
+        patches:
+          - target:
+              kind: ServiceMonitor
+            patch: |
+              - op: replace
+                path: /metadata/labels/release
+                value: prometheus-stack
