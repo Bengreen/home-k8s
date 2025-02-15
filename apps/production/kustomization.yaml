@@ -4,7 +4,6 @@ buildMetadata: [ originAnnotations ]
 resources:
   # - ../base/podinfo
   # - ../base/home-assistant
-  - ../base/minio
   - ../base/kiali
   - ./prometheus.yaml
   - ./security.yaml
