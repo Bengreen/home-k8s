@@ -7,7 +7,7 @@ spec:
   releaseName: pie
   chart:
     spec:
-      chart: k8s-python/helm/k8s-python
+      chart: helm-charts/k8s-python
       version: 0.0.0
       sourceRef:
         kind: HelmRepository
