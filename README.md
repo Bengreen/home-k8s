@@ -26,6 +26,6 @@ Reference from here https://kubernetes.io/docs/tasks/configure-pod-container/pul
 
 Or via a single command line
 
-    kubectl create secret docker-registry dockerconfigjson-ghcr-io --docker-server=ghcr.io --docker-username=<USERNAME> --docker-password=${GITHUB_TOKEN}
+    kubectl create secret docker-registry polecatworks-clasic --docker-server=ghcr.io --docker-username=<USERNAME> --docker-password=${GHCR_TOKEN}
 
     kubectl create secret generic bproxy0-bucket-proxy --from-literal=access_key_id=<KEYID> --from-literal=secret_key=<SECRET>
