@@ -5,7 +5,7 @@ metadata:
   name: log4ham
   labels:
     toolkit.fluxcd.io/tenant: dbs
-    istio-injection: disabled
+    istio-injection: enabled
 ---
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: GitRepository
