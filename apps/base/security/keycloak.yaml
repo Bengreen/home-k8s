@@ -5,6 +5,7 @@ metadata:
   name: keycloak
 spec:
   releaseName: keycloak
+  timeout: 10m
   chart:
     spec:
       chart: keycloak
