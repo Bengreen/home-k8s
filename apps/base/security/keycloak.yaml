@@ -59,6 +59,4 @@ metadata:
  name: master
 spec:
  realmName: master
- keycloakRef:
-   name: keycloak
-   kind: ClusterKeycloak
+ clusterKeycloakRef: keycloak
