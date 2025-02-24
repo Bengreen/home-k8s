@@ -34,3 +34,31 @@ spec:
       database: security-pg-keycloak
       port: 5432
       existingSecret: keycloak-postgresql
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name:  keycloak-admin
+type: Opaque
+data:
+  username: cmVhbG1hZG1pbg==   # base64-encoded value of "realmadmin"
+  password: cmVhbG1hZG1pbnB3   # base64-encoded value of "realmadminpw"
+---
+apiVersion: v1.edp.epam.com/v1
+kind: ClusterKeycloak
+metadata:
+  name: keycloak
+spec:
+  secret: keycloak-admin             # Secret name
+  url: http://keycloak.security.svc.cluster.local/auth/   # Keycloak URL
+  # url: http://service-y.namespace-b.svc.cluster.local   # Keycloak URL
+---
+apiVersion: v1.edp.epam.com/v1
+kind: ClusterKeycloakRealm
+metadata:
+ name: master
+spec:
+ realmName: master
+ keycloakRef:
+   name: keycloak
+   kind: ClusterKeycloak
