@@ -1,0 +1,18 @@
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: pgadmin
+spec:
+  hosts:
+  - pgadmin.k8s
+  gateways:
+  - istio-ingress/k8s-gateway
+  - mesh # applies to all the sidecars in the mesh
+  http:
+  - name: pgadmin
+    route:
+    - destination:
+        host: pgadmin-pgadmin4
+        port:
+          number: 80
