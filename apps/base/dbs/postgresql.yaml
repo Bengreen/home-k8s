@@ -18,6 +18,7 @@ spec:
       retries: 3
   values:
     pgpool:
+      replicaCount: 2
       adminPassword: mypw
       customUsersSecret: poolusers
       # kubectl -n dbs create secret generic poolusers --from-literal=usernames=security-pg-keycloak,dev-postgres-for-my-app,log4ham-pg-log4ham --from-literal=passwords=mypw
