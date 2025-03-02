@@ -13,12 +13,26 @@ spec:
   # secret in which the credentials for the database should be stored (same namespace)
   secretName: example-postgres-db-credentials
   # the content of the secret
-  secretsTemplates:
-    # https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING
-    CONNECTION_STRING: "{{ .Protocol }}://{{ .UserName }}:{{ .Password }}@{{ .DatabaseHost }}:{{ .DatabasePort }}/{{ .DatabaseName }}"
-    DB_PASS: "{{ .Password }}"
-    DB_USER: "{{ .UserName }}"
-    DB_HOST: "{{ .DatabaseHost }}"
-    DB_PORT: "{{ .DatabasePort }}"
-    DB_NAME: "{{ .DatabaseName }}"
-    DB_TYPE: "{{ .Protocol }}"
+  credentials:
+    templates:
+      - name: CONNECTION_STRING
+        template: "{{ .Protocol }}://{{ .Username }}:{{ .Password }}@{{ .Host }}:{{ .Port }}/{{ .Database }}"
+        secret: true
+      - name: DB_PASS
+        template: "{{ .Password }}"
+        secret: true
+      - name: DB_USER
+        template: "{{ .Username }}"
+        secret: true
+      - name: DB_HOST
+        template: "{{ .Host }}"
+        secret: true
+      - name: DB_PORT
+        template: "{{ .Port }}"
+        secret: true
+      - name: DB_NAME
+        template: "{{ .Database }}"
+        secret: true
+      - name: DB_TYPE
+        template: "{{ .Protocol }}"
+        secret: true
