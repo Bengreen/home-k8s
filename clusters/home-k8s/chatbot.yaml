@@ -1,0 +1,47 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: chatbot
+  labels:
+    toolkit.fluxcd.io/tenant: chatbot
+    istio-injection: enabled
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: chatbot-root
+  namespace: flux-system
+spec:
+  interval: 1m0s
+  ref:
+    branch: main
+  secretRef:
+    name: polecatworks-fluxcd
+  url: https://github.com/PolecatWorks/chatbot-root.git
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: chatbot-root
+  namespace: flux-system
+spec:
+  targetNamespace: chatbot
+  interval: 10m0s
+  # dependsOn:
+  #   - name: infra-configs
+  sourceRef:
+    kind: GitRepository
+    name: chatbot-root
+  path: ./fluxcd-dev
+  prune: true
+  wait: true
+  timeout: 5m0s
+  # patches:
+  #   - patch: |
+  #       - op: replace
+  #         path: /metadata/namespace
+  #         value: dev
+  #     target:
+  #       kind: HelmRelease
+  #       name: postgresql
