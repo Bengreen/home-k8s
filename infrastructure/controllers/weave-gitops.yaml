@@ -11,18 +11,6 @@ spec:
     tag: 4.0.36 # e.g., v0.39.0 - You must specify a version/tag.
   insecure: false # or true, if your registry is not using a valid TLS cert
 ---
-apiVersion: source.toolkit.fluxcd.io/v1
-kind: HelmChart
-metadata:
-  name: weave-gitops-chart
-  namespace: flux-system
-spec:
-  chart: weave-gitops # The name of the chart within the OCI repository
-  sourceRef:
-    kind: OCIRepository
-    name: weave-gitops-oci
-  interval: 10m
----
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
 metadata:
@@ -40,14 +28,19 @@ metadata:
   namespace: flux-system
 spec:
   interval: 60m
-  chart:
-    spec:
-      chart: weave-gitops
-      version: "*"
-      sourceRef:
-        kind: HelmRepository
-        name: weave-gitops
-      interval: 12h
+  chartRef: # <-- Use chartRef instead of the 'chart.spec' block
+    kind: OCIRepository # This KIND is valid in a HelmRelease's chartRef
+    name: weave-gitops-oci
+    namespace: flux-system # Note: Namespace must be specified here if different
+
+  # chart:
+  #   spec:
+  #     chart: weave-gitops
+  #     version: "*"
+  #     sourceRef:
+  #       kind: HelmRepository
+  #       name: weave-gitops
+  #     interval: 12h
   # https://github.com/weaveworks/weave-gitops/blob/main/charts/gitops-server/values.yaml
   values:
     resources:
