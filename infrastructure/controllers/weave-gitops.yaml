@@ -1,5 +1,30 @@
 ---
 apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: OCIRepository
+metadata:
+  name: weave-gitops-oci
+  namespace: flux-system
+spec:
+  interval: 30m
+  url: oci://ghcr.io/weaveworks/charts/weave-gitops # Note the addition of the chart name here.
+  ref:
+    tag: 4.0.36 # e.g., v0.39.0 - You must specify a version/tag.
+  insecure: false # or true, if your registry is not using a valid TLS cert
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmChart
+metadata:
+  name: weave-gitops-chart
+  namespace: flux-system
+spec:
+  chart: weave-gitops # The name of the chart within the OCI repository
+  sourceRef:
+    kind: OCIRepository
+    name: weave-gitops-oci
+    namespace: flux-system
+  interval: 10m
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
 metadata:
   name: weave-gitops
