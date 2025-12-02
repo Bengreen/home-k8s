@@ -21,7 +21,6 @@ spec:
   sourceRef:
     kind: OCIRepository
     name: weave-gitops-oci
-    namespace: flux-system
   interval: 10m
 ---
 apiVersion: source.toolkit.fluxcd.io/v1beta2
